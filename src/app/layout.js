@@ -1,29 +1,26 @@
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import { Poppins } from 'next/font/google'
+import './globals.css'
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-poppins'
+})
 
 export const metadata = {
-  title: "Task Management App | Softvence",
-  description: "Task Management App | Softvence",
-};
+  title: 'Task Management App | Softvence',
+  description: 'Task Management App | Softvence'
+}
 
-export default function RootLayout({ children }) {
+export default function RootLayout ({ children }) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${poppins.variable} antialiased`}
       >
         {children}
       </body>
     </html>
-  );
+  )
 }
