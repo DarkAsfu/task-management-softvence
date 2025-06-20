@@ -36,8 +36,6 @@ export default function LoginPage() {
             tracking-[-0.8px]">Login</h1>
             <p className="text-[14px] text-[#667085] font-[500] leading-[26.24px] font-poppins">Welcome Back, Please Enter your Details to Log In.</p>
           </div>
-
-          {/* Form */}
           <div className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="email" className="text-sm font-medium text-heading">
@@ -61,7 +59,6 @@ export default function LoginPage() {
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#60E5AE] focus:border-transparent"
               />
             </div>
-            {/* Remember me and Forgot password */}
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
                 <Checkbox id="remember" />
@@ -74,12 +71,10 @@ export default function LoginPage() {
               </a>
             </div>
 
-            {/* Login button */}
             <Button className="w-full bg-primary hover:bg-primary/50 text-black font-medium  rounded-md transition-colors text-[18px] py-6">
               Log In
             </Button>
 
-            {/* Divider */}
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-gray-300" />
@@ -88,8 +83,6 @@ export default function LoginPage() {
                 <span className="px-2 bg-white text-gray-500">Or</span>
               </div>
             </div>
-
-            {/* Sign up link */}
             <div className="text-center">
               <span className="text-[16px] text-subtext">
                 {"Don't have an account? "}
