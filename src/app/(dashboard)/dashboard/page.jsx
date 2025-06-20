@@ -1,12 +1,14 @@
+import Banner from '@/app/modules/Dashboard/Banner';
 import Navbar from '@/app/modules/Dashboard/Navbar';
-import SectionBanner from '@/app/modules/Reusable/SectionBanner';
+import TaskList from '@/app/modules/Dashboard/TaskList';
 import React from 'react';
 
 const page = () => {
     return (
         <div>
             <Navbar/>
-            <SectionBanner/>
+            <Banner/>
+            <TaskList/>
         </div>
     );
 };

@@ -17,7 +17,7 @@ export default function Navbar () {
 
   return (
     <nav className='bg-transparent absolute w-full z-50'>
-      <div className='max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between'>
+      <div className='max-w-[1320px] mx-auto py-3 px-2 2xl:px-0 flex items-center justify-between'>
         {/* Left side - Logo */}
         <div className='flex items-center space-x-2'>
           <div className='p-1.5 bg-[rgba(255,255,255,0.15)] rounded-[8px]'>
