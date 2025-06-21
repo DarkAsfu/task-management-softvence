@@ -12,6 +12,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Calendar, Trash2, Plus, Dot } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 // Demo JSON data
 const tasksData = [
@@ -115,7 +116,7 @@ export default function TaskList () {
               <SelectTrigger className='w-full'>
                 <SelectValue placeholder='Select Task Category' />
               </SelectTrigger>
-              <SelectContent className="z-200 bg-white">
+              <SelectContent className='z-200 bg-white'>
                 <SelectItem value='all-categories'>
                   Select Task Category
                 </SelectItem>
@@ -129,7 +130,7 @@ export default function TaskList () {
               <SelectTrigger className='w-full'>
                 <SelectValue placeholder='All Task' />
               </SelectTrigger>
-              <SelectContent className="z-200 bg-white">
+              <SelectContent className='z-200 bg-white'>
                 <SelectItem value='all-tasks'>All Task</SelectItem>
                 <SelectItem value='pending'>Pending</SelectItem>
                 <SelectItem value='in-progress'>In Progress</SelectItem>
@@ -147,48 +148,62 @@ export default function TaskList () {
         {/* Task Grid */}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
           {tasksData.map(task => (
-            <Card
-              key={task.id}
-              className='bg-white shadow-sm hover:shadow-md transition-shadow'
-            >
-              <CardContent className='p-6'>
-                {/* Header with avatar and delete button */}
-                <div className='flex items-center justify-between mb-4'>
-                  <div className='flex items-center space-x-3'>
-                    <div
-                      className={`w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-medium text-sm`}
-                    >
-                      <Image src="/ticon.png" width={24} height={24} alt='task-icon' />
+            <Link key={task.id} href={`/dashboard/task-details/${task.id}`}>
+              <Card
+                
+                className='bg-white shadow-sm hover:shadow-md transition-shadow'
+              >
+                <CardContent className='p-6'>
+                  {/* Header with avatar and delete button */}
+                  <div className='flex items-center justify-between mb-4'>
+                    <div className='flex items-center space-x-3'>
+                      <div
+                        className={`w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-medium text-sm`}
+                      >
+                        <Image
+                          src='/ticon.png'
+                          width={24}
+                          height={24}
+                          alt='task-icon'
+                        />
+                      </div>
+                      <h3 className='font-semibold text-[#161616] font-poppins text-[24px]'>
+                        {task.title}
+                      </h3>
                     </div>
-                    <h3 className='font-semibold text-[#161616] font-poppins text-[24px]'>
-                      {task.title}
-                    </h3>
+                    <Button
+                      variant='ghost'
+                      size='sm'
+                      className='text-red-500 hover:text-red-700 hover:bg-red-50'
+                    >
+                      <Trash2 className='w-4 h-4' />
+                    </Button>
                   </div>
-                  <Button
-                    variant='ghost'
-                    size='sm'
-                    className='text-red-500 hover:text-red-700 hover:bg-red-50'
-                  >
-                    <Trash2 className='w-4 h-4' />
-                  </Button>
-                </div>
-                <p className='text-[#667085] font-poppins text-[14px] leading-[22.96px] mb-7 ml-[48px]'>
-                  {task.description}
-                </p>
-                <div className='flex items-center justify-between'>
-                  <div className='flex items-center space-x-2 text-[#1F1F1F] text-sm font-poppins'>
-                    <Calendar className='w-6 h-6' />
-                    <span>{task.date}</span>
+                  <p className='text-[#667085] font-poppins text-[14px] leading-[22.96px] mb-7 ml-[48px]'>
+                    {task.description}
+                  </p>
+                  <div className='flex items-center justify-between'>
+                    <div className='flex items-center space-x-2 text-[#1F1F1F] text-sm font-poppins'>
+                      <Calendar className='w-6 h-6' />
+                      <span>{task.date}</span>
+                    </div>
+                    <Badge
+                      variant='outline'
+                      className={`${getStatusColor(
+                        task.status
+                      )} font-medium border-0 bg-transparent`}
+                    >
+                      <span
+                        className={`${getStatusColor(
+                          task.status
+                        )} h-2 w-2 rounded-full`}
+                      ></span>{' '}
+                      {task.status}
+                    </Badge>
                   </div>
-                  <Badge
-                    variant='outline'
-                    className={`${getStatusColor(task.status)} font-medium border-0 bg-transparent`}
-                  >
-                    <span className={`${getStatusColor(task.status)} h-2 w-2 rounded-full`} ></span> {task.status}
-                  </Badge>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
       </div>
