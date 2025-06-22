@@ -56,7 +56,7 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex">
-      <div className="flex-1 bg-[#040612] flex items-center justify-center p-8 relative overflow-hidden">
+      <div className="hidden flex-1 bg-[#040612] md:flex items-center justify-center p-8 relative overflow-hidden">
         <div className="absolute top-0 left-0 h-[200px] w-[400px] -translate-x-1/4 -translate-y-1/4 rounded-full bg-primary opacity-50 blur-[110px]"></div>
         <div className="absolute bottom-0 right-0 h-[400px] w-[400px] translate-x-1/4 translate-y-1/4 rounded-full bg-primary opacity-50 blur-[80px]"></div>
         
