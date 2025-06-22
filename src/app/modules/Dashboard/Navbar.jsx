@@ -11,14 +11,18 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { List, RotateCcw, ChevronDown, Menu, Timer } from 'lucide-react'
 import { useState } from 'react'
+import { useAuth } from '@/app/provider/AuthProvider'
 
 export default function Navbar () {
   const [isOpen, setIsOpen] = useState(false)
-
+  const {user, logout} = useAuth();
+  const handleLogout = () =>{
+    logout();
+  }
+  console.log(user);
   return (
     <nav className='bg-transparent absolute w-full z-50'>
       <div className='max-w-[1320px] mx-auto py-3 px-2 2xl:px-0 flex items-center justify-between'>
-        {/* Left side - Logo */}
         <div className='flex items-center space-x-2'>
           <div className='p-1.5 bg-[rgba(255,255,255,0.15)] rounded-[8px]'>
             <Timer className='w-5 h-5 text-white' />
@@ -28,8 +32,6 @@ export default function Navbar () {
             Tasko
           </span>
         </div>
-
-        {/* Desktop Navigation - Center */}
         <div className='hidden md:flex items-center space-x-6'>
           <Button
             variant='ghost'
@@ -87,14 +89,14 @@ export default function Navbar () {
               >
                 <Avatar className='w-7 h-7'>
                   <AvatarImage
-                    src='/placeholder.svg?height=27&width=27'
-                    alt='Thomas M.'
+                    src={`https://ui-avatars.com/api/?name=${user?.fullName}&background=random`}
+                    alt={user?.name}
                   />
                   <AvatarFallback className='text-xs bg-teal-600 text-white'>
                     TM
                   </AvatarFallback>
                 </Avatar>
-                <span className='hidden lg:inline text-[18px] font-normal'>Thomas M.</span>
+                <span className='hidden lg:inline text-[18px] font-normal'>{user?.fullName}</span>
                 <ChevronDown className='w-4 h-4' />
               </Button>
             </DropdownMenuTrigger>
@@ -102,8 +104,8 @@ export default function Navbar () {
               <DropdownMenuItem>Profile</DropdownMenuItem>
               <DropdownMenuItem>Settings</DropdownMenuItem>
               <DropdownMenuItem>Help</DropdownMenuItem>
-              <DropdownMenuItem className='text-red-600'>
-                Sign out
+              <DropdownMenuItem onClick={handleLogout} className='text-red-600'>
+                Log out
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
