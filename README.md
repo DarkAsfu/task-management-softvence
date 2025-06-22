@@ -5,21 +5,32 @@ A modern, full-featured task management application built with Next.js 15, React
 ## 📸 Screenshots
 
 ### Dashboard Overview
-![Dashboard](screenshots/dashboard.png)
-*Main dashboard with task overview and navigation*
+![image](https://github.com/user-attachments/assets/dfe94f22-e188-4d7a-92f8-8019e0eea8fb)
+
 
 ### Task Management
+![image](https://github.com/user-attachments/assets/663c4432-07cd-4417-bc3b-a0db2cbded12)
+
+![image](https://github.com/user-attachments/assets/9fb0b5fc-8be5-4362-a754-5aad24b85dd3)
+
+![image](https://github.com/user-attachments/assets/ca042a02-912a-4c96-9274-1761179936de)
 
 
 ### Spin Wheel Feature
-![Spin Wheel](screenshots/spin-wheel.png)
-*Interactive spin wheel for gamified task selection*
+![image](https://github.com/user-attachments/assets/af9046e1-efb9-497e-9444-cfa4b5323a66)
+
+![image](https://github.com/user-attachments/assets/316ada97-db76-472f-825b-c59936345c97)
+
 
 ### Authentication
-![Login Page](screenshots/login.png)
-*Clean and modern login interface*
+![image](https://github.com/user-attachments/assets/eefc4275-b5f1-4864-9aa5-92370cdc1e93)
 
-> **Note**: Add your actual screenshots to the `screenshots/` directory and update the paths above.
+
+![image](https://github.com/user-attachments/assets/56b47c06-20df-4d74-bc05-2cc6fcd08a19)
+
+### Not Found Page
+![image](https://github.com/user-attachments/assets/4c59b082-560a-4419-99d3-54b0d0606a45)
+
 
 ## 🚀 Features
 
