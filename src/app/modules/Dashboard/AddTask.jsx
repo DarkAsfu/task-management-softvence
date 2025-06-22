@@ -103,7 +103,7 @@ export default function AddTask() {
               Add Your New Task
             </h1>
             <Link href="/dashboard">
-              <Button className='w-[167px] h-[50px] bg-primary text-heading text-[16px] font-semibold'>
+              <Button className='w-[167px] h-[50px] cursor-pointer bg-primary text-heading text-[16px] font-semibold'>
                 Back
               </Button>
             </Link>
@@ -199,7 +199,7 @@ export default function AddTask() {
                   background:
                     'linear-gradient(102deg, #05E389 3.72%, #009A62 80.82%)'
                 }}
-                className='text-heading text-[18px] font-semibold w-[270px] h-[62px] px-8 py-3 rounded-lg flex items-center gap-2 capitalize'
+                className='text-heading cursor-pointer text-[18px] font-semibold w-[270px] h-[62px] px-8 py-3 rounded-lg flex items-center gap-2 capitalize'
               >
                 {loading ? 'Creating Task...' : 'Add New Task'}
                 {!loading && <ArrowRight

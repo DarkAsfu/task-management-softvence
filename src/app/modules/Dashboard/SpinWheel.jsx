@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Settings } from "lucide-react"
+import Link from "next/link"
 
 const allCategories = [
   { id: 1, label: "Arts and Craft", color: "#DC2626", textColor: "white" },
@@ -273,18 +274,18 @@ export default function SpinWheel() {
               <Button
                 onClick={handleSpin}
                 disabled={isSpinning || activeSegments.length === 0}
-                className="bg-primary text-heading h-[62px] text-[18px] font-semibold md:w-[270px] px-6 py-3 rounded-lg flex items-center justify-center gap-2 disabled:opacity-50 w-full sm:w-auto"
+                className="bg-primary text-heading h-[62px] text-[18px] font-semibold md:w-[270px] px-6 py-3 rounded-lg flex items-center cursor-pointer justify-center gap-2 disabled:opacity-50 w-full sm:w-auto"
               >
                 <Settings className="w-4 h-4" />
                 {isSpinning ? "Spinning..." : "Spin"}
               </Button>
 
-              <Button
-                className="bg-primary text-heading h-[62px] text-[18px] font-semibold md:w-[270px] px-6 py-3 rounded-lg w-full sm:w-auto"
-                onClick={() => console.log("Go to task")}
+              <Link
+                href="/dashboard"
+                className="bg-primary text-heading h-[62px] text-[18px] font-semibold cursor-pointer  md:w-[270px] px-6 py-3 rounded-lg w-full sm:w-auto text-center flex items-center justify-center"
               >
                 Go To Task
-              </Button>
+              </Link>
             </div>
           </div>
         </div>

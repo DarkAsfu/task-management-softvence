@@ -145,7 +145,7 @@ export default function TaskDetails({ task_id }) {
               <h3 className="font-poppins text-[16px] text-[#C716F3] font-semibold">{task?.pointsEarned} Points</h3>
               <Button
                 style={{ backgroundColor: "rgba(255, 171, 0, 0.10)" }}
-                className="w-full md:w-[167px] h-[50px] text-[#FFAB00] text-[18px] font-semibold flex items-center justify-center gap-2"
+                className="w-full md:w-[167px] cursor-pointer h-[50px] text-[#FFAB00] text-[18px] font-semibold flex items-center justify-center gap-2"
                 onClick={() => router.push(`/dashboard/edit-task/${task_id}`)}
                 aria-label="Edit Task"
               >
@@ -166,7 +166,7 @@ export default function TaskDetails({ task_id }) {
                 Edit Task
               </Button>
               <Button
-                className="w-full md:w-[167px] h-[50px] bg-primary text-heading text-[16px] font-semibold"
+                className="w-full cursor-pointer md:w-[167px] h-[50px] bg-primary text-heading text-[16px] font-semibold"
                 onClick={() => router.back()}
                 aria-label="Back to Tasks"
               >
@@ -321,7 +321,7 @@ export default function TaskDetails({ task_id }) {
           <div className="flex flex-col sm:flex-row gap-4 justify-end">
             <Button
               style={{ backgroundColor: "rgba(255, 76, 36, 0.15)" }}
-              className="w-full md:w-[270px] h-[62px] capitalize text-[18px] font-semibold leading-[29.52px] text-[#FF4C24] py-4"
+              className="w-full md:w-[270px] cursor-pointer h-[62px] capitalize text-[18px] font-semibold leading-[29.52px] text-[#FF4C24] py-4"
               onClick={() => setShowDeleteModal(true)}
               disabled={updating}
               aria-label="Delete Task"
@@ -329,7 +329,7 @@ export default function TaskDetails({ task_id }) {
               Delete Task
             </Button>
             <Button
-              className="w-full md:w-[270px] h-[62px] capitalize bg-primary text-[18px] font-semibold leading-[29.52px] text-heading py-4"
+              className="w-full cursor-pointer md:w-[270px] h-[62px] capitalize bg-primary text-[18px] font-semibold leading-[29.52px] text-heading py-4"
               onClick={handleStatusChange}
               disabled={updating || selectedStatus === task.status}
               aria-label="Submit Status Change"
@@ -377,7 +377,7 @@ export default function TaskDetails({ task_id }) {
               <Button
                 onClick={handleDeleteTask}
                 disabled={updating}
-                className="flex-1 h-full bg-primary hover:bg-primary/40 text-white"
+                className="flex-1 h-full cursor-pointer bg-primary hover:bg-primary/40 text-white"
               >
                 {updating ? (
                   <>
@@ -410,7 +410,7 @@ export default function TaskDetails({ task_id }) {
               <Button
                 variant="outline"
                 onClick={() => setShowDeleteModal(false)}
-                className="flex-1 h-full border-gray-300 hover:bg-gray-50"
+                className="flex-1 cursor-pointer h-full border-gray-300 hover:bg-gray-50"
                 disabled={updating}
               >
                 No

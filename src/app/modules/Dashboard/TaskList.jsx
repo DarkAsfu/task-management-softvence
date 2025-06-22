@@ -155,8 +155,8 @@ export default function TaskList() {
               </SelectContent>
             </Select>
 
-            <Link href='/dashboard/add-task'>
-              <Button className='bg-primary h-[50px] text-heading flex items-center space-x-2'>
+            <Link className='cursor-pointer' href='/dashboard/add-task'>
+              <Button className='bg-primary cursor-pointer h-[50px] text-heading flex items-center space-x-2'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   width='18'
@@ -220,7 +220,7 @@ export default function TaskList() {
                 : "No tasks match your filters"}
             </p>
             <Link href='/dashboard/add-task'>
-              <Button className='bg-primary hover:bg-primary/90 text-heading'>
+              <Button className='bg-primary cursor-pointer hover:bg-primary/90 text-heading'>
                 <Plus className='w-4 h-4 mr-2' />
                 Create New Task
               </Button>
@@ -303,7 +303,7 @@ export default function TaskList() {
               <Button
                 onClick={handleDeleteTask}
                 disabled={updating}
-                className="flex-1 h-full bg-primary hover:bg-primary/40 text-white"
+                className="flex-1 cursor-pointer h-full bg-primary hover:bg-primary/40 text-white"
               >
                 {updating ? (
                   <>
@@ -336,7 +336,7 @@ export default function TaskList() {
               <Button
                 variant="outline"
                 onClick={() => setShowDeleteModal(false)}
-                className="flex-1 h-full border-gray-300 hover:bg-gray-50"
+                className="flex-1 cursor-pointer h-full border-gray-300 hover:bg-gray-50"
                 disabled={updating}
               >
                 No

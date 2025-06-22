@@ -24,7 +24,7 @@ export default function Navbar () {
   return (
     <nav className='bg-transparent absolute w-full z-50'>
       <div className='max-w-[1320px] mx-auto py-3 px-2 2xl:px-0 flex items-center justify-between'>
-        <div className='flex items-center space-x-2'>
+        <Link href="/dashboard" className='flex items-center space-x-2'>
           <div className='p-1.5 bg-[rgba(255,255,255,0.15)] rounded-[8px]'>
             <Timer className='w-5 h-5 text-white' />
           </div>
@@ -32,7 +32,7 @@ export default function Navbar () {
           <span className='text-white font-semibold text-[24px] font-poppins'>
             Tasko
           </span>
-        </div>
+        </Link>
         <div className='hidden md:flex items-center space-x-6'>
           <Link
             href="/dashboard"

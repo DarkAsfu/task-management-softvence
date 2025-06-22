@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import SectionBanner from './modules/Reusable/SectionBanner'
+import Link from 'next/link'
 
 const NotFound = () => {
   return (
@@ -15,9 +16,9 @@ const NotFound = () => {
             className=''
             alt='not found'
           />
-           <Button className='mt-[87px] mb-[74px] w-full md:w-[584px] mx-auto bg-primary hover:bg-primary/50 text-black font-medium  rounded-md transition-colors text-[18px] py-6'>
+           <Link href="/dashboard" className='flex justify-center mt-[87px] mb-[74px] w-full md:w-[584px] mx-auto bg-primary hover:bg-primary/50 text-black font-medium  rounded-md transition-colors text-[18px] py-6'>
           Back to Home
-        </Button>
+        </Link>
         </div>
        
       </div>
