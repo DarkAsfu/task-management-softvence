@@ -11,6 +11,10 @@ A modern, full-featured task management application built with Next.js 15, React
 ### Task Management
 ![image](https://github.com/user-attachments/assets/663c4432-07cd-4417-bc3b-a0db2cbded12)
 
+
+![image](https://github.com/user-attachments/assets/f70ca927-7095-4819-9732-666da4c4a2c7)
+
+
 ![image](https://github.com/user-attachments/assets/9fb0b5fc-8be5-4362-a754-5aad24b85dd3)
 
 ![image](https://github.com/user-attachments/assets/ca042a02-912a-4c96-9274-1761179936de)
@@ -30,6 +34,9 @@ A modern, full-featured task management application built with Next.js 15, React
 
 ### Not Found Page
 ![image](https://github.com/user-attachments/assets/4c59b082-560a-4419-99d3-54b0d0606a45)
+
+
+![image](https://github.com/user-attachments/assets/7775ed43-0969-4e26-bb0f-ffdcb244c9f6)
 
 
 ## 🚀 Features
