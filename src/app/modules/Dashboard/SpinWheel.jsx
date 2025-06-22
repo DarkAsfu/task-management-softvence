@@ -18,7 +18,13 @@ export default function SpinWheel() {
   const [isSpinning, setIsSpinning] = useState(false)
   const [rotation, setRotation] = useState(0)
   const [selectedCategories, setSelectedCategories] = useState([])
+  const [mounted, setMounted] = useState(false)
   const audioContextRef = useRef(null)
+
+  // Handle client-side mounting to prevent SSR issues
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   // Get active wheel segments based on selected categories
   const getActiveSegments = () => {
@@ -30,14 +36,14 @@ export default function SpinWheel() {
 
   // Create audio context
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== "undefined" && mounted) {
       try {
         audioContextRef.current = new (window.AudioContext || window.webkitAudioContext)()
       } catch (error) {
         console.log("Audio context not supported")
       }
     }
-  }, [])
+  }, [mounted])
 
   // Handle dropdown change - toggle category selection
   const handleDropdownChange = (value) => {
@@ -91,9 +97,18 @@ export default function SpinWheel() {
     }, 3000)
   }
 
+  // Show loading state until mounted to prevent SSR issues
+  if (!mounted) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-lg">Loading...</div>
+      </div>
+    )
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className='max-w-[1320px] p-5 md:p-[30px] relative -top-14 z-100 rounded-[15px] shadow mx-auto bg-white'>
+      <div className="max-w-[1320px] p-5 md:p-[30px] relative -top-14 z-100 rounded-[15px] shadow mx-auto bg-white">
         <div className="">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
             <h1 className="text-2xl md:text-3xl font-semibold text-gray-900">Spin Wheel</h1>
