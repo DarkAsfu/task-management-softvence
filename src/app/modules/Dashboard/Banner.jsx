@@ -1,3 +1,4 @@
+"use client"
 import { useAuth } from "@/app/provider/AuthProvider"
 
 const Banner = () => {
