@@ -13,7 +13,7 @@ const page = () => {
             <Navbar/>
             <SectionBanner/>
             {/* {params.task_id} */}
-            <TaskDetails/>
+            <TaskDetails task_id={params?.task_id}/>
         </div>
     );
 };

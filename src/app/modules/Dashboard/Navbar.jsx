@@ -12,6 +12,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { List, RotateCcw, ChevronDown, Menu, Timer } from 'lucide-react'
 import { useState } from 'react'
 import { useAuth } from '@/app/provider/AuthProvider'
+import Link from 'next/link'
 
 export default function Navbar () {
   const [isOpen, setIsOpen] = useState(false)
@@ -33,13 +34,14 @@ export default function Navbar () {
           </span>
         </div>
         <div className='hidden md:flex items-center space-x-6'>
-          <Button
+          <Link
+            href="/dashboard"
             variant='ghost'
-            className='text-white hover:bg-teal-600/50 hover:text-white flex items-center space-x-2'
+            className='text-white p-1 rounded-md hover:bg-teal-600/50 hover:text-white flex items-center space-x-2'
           >
             <svg
               xmlns='http://www.w3.org/2000/svg'
-              className="w-10 h-10"
+              className="w-5 h-5"
               viewBox='0 0 24 24'
               fill='none'
             >
@@ -53,16 +55,17 @@ export default function Navbar () {
               />
             </svg>
             <span className='text-primary text-[18px] capitalize'>Task List</span>
-          </Button>
+          </Link>
 
-          <Button
+          <Link
+          href="/dashboard/spin-wheel"
             variant='ghost'
-            className='text-white hover:bg-teal-600/50 hover:text-white flex items-center space-x-2'
+            className='text-white p-1 rounded-md hover:bg-teal-600/50 hover:text-white flex items-center space-x-2'
           >
             <svg
               xmlns='http://www.w3.org/2000/svg'
-              width='32'
-              height='32'
+              width='16'
+              height='16'
               viewBox='0 0 24 24'
               fill='none'
             >
@@ -76,7 +79,7 @@ export default function Navbar () {
               />
             </svg>
             <span className='text-[18px] capitalize'>Spin</span>
-          </Button>
+          </Link>
         </div>
 
         {/* Right side - Desktop User Profile */}
@@ -186,14 +189,14 @@ export default function Navbar () {
             <div className='flex items-center space-x-3 px-3 py-2'>
               <Avatar className='w-8 h-8'>
                 <AvatarImage
-                  src='/placeholder.svg?height=32&width=32'
-                  alt='Thomas M.'
+                   src={`https://ui-avatars.com/api/?name=${user?.fullName}&background=random`}
+                   alt={user?.name}
                 />
                 <AvatarFallback className='text-sm bg-teal-600 text-white'>
-                  TM
+                {user?.name}
                 </AvatarFallback>
               </Avatar>
-              <span className='font-medium'>Thomas M.</span>
+              <span className='font-medium'>{user?.name}</span>
             </div>
 
             <Button
@@ -220,7 +223,7 @@ export default function Navbar () {
             <Button
               variant='ghost'
               className='justify-start text-red-600'
-              onClick={() => setIsOpen(false)}
+              onClick={handleLogout}
             >
               Sign out
             </Button>
