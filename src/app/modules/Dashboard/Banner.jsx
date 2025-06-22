@@ -1,4 +1,7 @@
+import { useAuth } from "@/app/provider/AuthProvider"
+
 const Banner = () => {
+  const {user} = useAuth();
     return (
       <div className='w-full h-[306px] relative overflow-hidden'>
         {/* Background elements */}
@@ -14,7 +17,7 @@ const Banner = () => {
         
         <div className='relative z-50 h-full flex flex-col justify-center items-start max-w-[1320px] mx-auto md:mt-[35px] px-2 2xl:px-0'>
           <h1 className='text-primary text-[24px] font-semibold font-poppins leading-[31.68px] tracking-[-0.48px]'>
-          Hi Thomas
+          Hi {user?.fullName}
           </h1>
           <h1 className='text-white text-[40px] font-semibold font-poppins leading-[52.8px]'>
             Welcome to Dashboard

@@ -16,13 +16,17 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { toast } from 'react-hot-toast'
 import axios from 'axios'
+import { Dialog, DialogContent, DialogOverlay } from '@/components/ui/dialog' // Import your dialog components
 
 export default function TaskList() {
   const [tasks, setTasks] = useState([])
   const [filteredTasks, setFilteredTasks] = useState([])
   const [loading, setLoading] = useState(true)
+  const [showDeleteModal, setShowDeleteModal] = useState(false)
   const [categoryFilter, setCategoryFilter] = useState('all-categories')
   const [statusFilter, setStatusFilter] = useState('all-tasks')
+  const [taskToDelete, setTaskToDelete] = useState(null)
+  const [updating, setUpdating] = useState(false)
 
   useEffect(() => {
     fetchTasks()
@@ -34,7 +38,7 @@ export default function TaskList() {
 
   const fetchTasks = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/tasks', {
+      const res = await axios.get('https://task-management-server-softvence-steel.vercel.app/api/tasks', {
         withCredentials: true
       })
       setTasks(res.data.tasks || [])
@@ -81,20 +85,29 @@ export default function TaskList() {
     }
   }
 
-  const handleDelete = async (taskId, e) => {
+  const handleDeleteClick = (taskId, e) => {
     e.preventDefault()
     e.stopPropagation()
-    
-    if (!confirm('Are you sure you want to delete this task?')) return
+    setTaskToDelete(taskId)
+    setShowDeleteModal(true)
+  }
 
+  const handleDeleteTask = async () => {
+    if (!taskToDelete) return
+    
     try {
-      await axios.delete(`http://localhost:5000/api/tasks/${taskId}`, {
+      setUpdating(true)
+      await axios.delete(`https://task-management-server-softvence-steel.vercel.app/api/tasks/${taskToDelete}`, {
         withCredentials: true
       })
       toast.success('Task deleted successfully')
       fetchTasks() // Refresh the task list
     } catch (error) {
       toast.error(error.response?.data?.message || 'Failed to delete task')
+    } finally {
+      setUpdating(false)
+      setShowDeleteModal(false)
+      setTaskToDelete(null)
     }
   }
 
@@ -237,7 +250,7 @@ export default function TaskList() {
                         variant='ghost'
                         size='sm'
                         className='text-red-500 hover:text-red-700 hover:bg-red-50'
-                        onClick={(e) => handleDelete(task._id, e)}
+                        onClick={(e) => handleDeleteClick(task._id, e)}
                       >
                         <Trash2 className='w-4 h-4' />
                       </Button>
@@ -273,6 +286,65 @@ export default function TaskList() {
           </div>
         )}
       </div>
+
+      {/* Delete Confirmation Modal */}
+      <Dialog open={showDeleteModal} onOpenChange={setShowDeleteModal}>
+        <DialogOverlay className="fixed inset-0 bg-black/50 z-[100]" />
+        <DialogContent className="fixed left-[50%] top-[50%] z-[101] w-full max-w-[425px] translate-x-[-50%] translate-y-[-50%] rounded-lg p-6 bg-white shadow-lg">
+          <div className="flex flex-col items-center text-center">
+            <Image src="/delete.png" width={350} height={250} alt="Delete confirmation" />
+            
+            <h3 className="text-[40px] font-poppins font-semibold text-heading mb-2">Are you Sure!!</h3>
+            <p className="text-[#737791] text-[18px] font-poppins mb-6">
+              Do you want to delete this Task on this app?
+            </p>
+
+            <div className="flex gap-5 w-[299px] h-[49px]">
+              <Button
+                onClick={handleDeleteTask}
+                disabled={updating}
+                className="flex-1 h-full bg-primary hover:bg-primary/40 text-white"
+              >
+                {updating ? (
+                  <>
+                    <svg
+                      className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      ></path>
+                    </svg>
+                    Deleting...
+                  </>
+                ) : (
+                  "Yes"
+                )}
+              </Button>
+              <Button
+                variant="outline"
+                onClick={() => setShowDeleteModal(false)}
+                className="flex-1 h-full border-gray-300 hover:bg-gray-50"
+                disabled={updating}
+              >
+                No
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }

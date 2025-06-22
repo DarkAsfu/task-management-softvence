@@ -36,7 +36,7 @@ export default function EditTask() {
   useEffect(() => {
     const fetchTask = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/tasks/${task_id}`, {
+        const response = await fetch(`https://task-management-server-softvence-steel.vercel.app/api/tasks/${task_id}`, {
           credentials: 'include'
         })
         const data = await response.json()
@@ -95,7 +95,7 @@ export default function EditTask() {
 
       const dueDateISO = formData.dueDate.toISOString()
 
-      const response = await fetch(`http://localhost:5000/api/tasks/${task_id}`, {
+      const response = await fetch(`https://task-management-server-softvence-steel.vercel.app/api/tasks/${task_id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'

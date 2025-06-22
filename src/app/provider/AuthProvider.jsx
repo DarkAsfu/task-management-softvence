@@ -17,7 +17,7 @@ export function AuthProvider({ children }) {
 
   const checkAuthStatus = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/auth/profile', {
+      const res = await fetch('https://task-management-server-softvence-steel.vercel.app/api/auth/profile', {
         credentials: 'include'
       })
       const data = await res.json()
@@ -33,7 +33,7 @@ export function AuthProvider({ children }) {
 
   const register = async (formData) => {
     try {
-      const res = await fetch('http://localhost:5000/api/auth/register', {
+      const res = await fetch('https://task-management-server-softvence-steel.vercel.app/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
@@ -54,7 +54,7 @@ export function AuthProvider({ children }) {
 
   const login = async (formData) => {
     try {
-      const res = await fetch('http://localhost:5000/api/auth/login', {
+      const res = await fetch('https://task-management-server-softvence-steel.vercel.app/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -76,7 +76,7 @@ export function AuthProvider({ children }) {
 
   const logout = async () => {
     try {
-      await fetch('http://localhost:5000/api/auth/logout', {
+      await fetch('https://task-management-server-softvence-steel.vercel.app/api/auth/logout', {
         method: 'POST',
         credentials: 'include'
       })

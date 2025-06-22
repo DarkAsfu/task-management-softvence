@@ -12,7 +12,7 @@ import { ArrowLeft, X } from "lucide-react"
 import Image from "next/image"
 
 // Constants
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api"
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://task-management-server-softvence-steel.vercel.app/api"
 const STATUS_OPTIONS = ["Pending", "Ongoing", "Collaborative Task", "Done"]
 
 // Utility Function
@@ -345,16 +345,6 @@ export default function TaskDetails({ task_id }) {
         <DialogOverlay className="fixed inset-0 bg-black/50 z-[100]" />
         <DialogContent className="fixed left-[50%] top-[50%] z-[101] w-full max-w-md translate-x-[-50%] translate-y-[-50%] border-0 p-0 bg-transparent shadow-none">
           <div className="bg-white rounded-2xl p-8 text-center relative shadow-lg">
-            {/* <Button
-              variant="ghost"
-              size="icon"
-              className="absolute right-4 top-4 text-gray-400 hover:text-gray-600"
-              onClick={() => setShowSuccessModal(false)}
-              aria-label="Close Modal"
-            >
-              <X className="h-4 w-4" />
-            </Button> */}
-
             <div className="mb-6 flex justify-center">
             <Image src="/congratulations.png" width={350} height={250} />
             </div>

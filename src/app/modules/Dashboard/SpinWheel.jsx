@@ -110,7 +110,7 @@ export default function SpinWheel() {
                       <div className="flex items-center gap-2">
                         <div className="w-3 h-3 rounded-full" style={{ backgroundColor: category.color }}></div>
                         {category.label}
-                        {selectedCategories.includes(category.label) && <span className="ml-2 text-green-600">✓</span>}
+                        {selectedCategories.includes(category.label) && <span className="ml-2 text-primary">✓</span>}
                       </div>
                     </SelectItem>
                   ))}
@@ -244,9 +244,8 @@ export default function SpinWheel() {
                   <circle cx="200" cy="200" r="25" fill="white" />
                 </svg>
 
-                {/* Green triangular pointer */}
                 <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-2">
-                  <div className="w-0 h-0 border-l-[15px] border-r-[15px] border-b-[25px] sm:border-l-[20px] sm:border-r-[20px] sm:border-b-[30px] border-l-transparent border-r-transparent border-b-green-500"></div>
+                  <div className="w-0 h-0 border-l-[25px] border-r-[25px] border-b-[35px] sm:border-l-[30px] sm:border-r-[30px] sm:border-b-[50px] border-l-transparent border-r-transparent border-b-[#2F911E]"></div>
                 </div>
               </div>
             </div>
@@ -259,14 +258,14 @@ export default function SpinWheel() {
               <Button
                 onClick={handleSpin}
                 disabled={isSpinning || activeSegments.length === 0}
-                className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg flex items-center justify-center gap-2 font-medium disabled:opacity-50 w-full sm:w-auto"
+                className="bg-primary text-heading h-[62px] text-[18px] font-semibold md:w-[270px] px-6 py-3 rounded-lg flex items-center justify-center gap-2 disabled:opacity-50 w-full sm:w-auto"
               >
                 <Settings className="w-4 h-4" />
                 {isSpinning ? "Spinning..." : "Spin"}
               </Button>
 
               <Button
-                className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-medium w-full sm:w-auto"
+                className="bg-primary text-heading h-[62px] text-[18px] font-semibold md:w-[270px] px-6 py-3 rounded-lg w-full sm:w-auto"
                 onClick={() => console.log("Go to task")}
               >
                 Go To Task

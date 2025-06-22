@@ -64,7 +64,7 @@ export default function AddTask() {
       // Format the date to ISO string
       const dueDateISO = formData.dueDate.toISOString()
 
-      const response = await fetch('http://localhost:5000/api/tasks', {
+      const response = await fetch('https://task-management-server-softvence-steel.vercel.app/api/tasks', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

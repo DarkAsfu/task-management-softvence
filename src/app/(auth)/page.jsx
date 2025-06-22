@@ -45,10 +45,7 @@ export default function LoginPage() {
         password: formData.password
       })
       
-      // Handle "Remember me" functionality
       if (formData.remember) {
-        // You might want to implement longer-lived tokens here
-        // This would require backend support for remember-me tokens
       }
     } catch (error) {
       toast.error(error.message || 'Login failed. Please check your credentials.')
@@ -93,7 +90,7 @@ export default function LoginPage() {
               <Input
                 id="email"
                 type="email"
-                placeholder="m32220@gmail.com"
+                placeholder="Enter you email"
                 value={formData.email}
                 onChange={handleChange}
                 required
@@ -132,7 +129,7 @@ export default function LoginPage() {
                 </Label>
               </div>
               <Link 
-                href="/forgot-password" 
+                href="/reset-password" 
                 className="text-[16px] font-[400] text-subtext hover:text-gray-800"
               >
                 Forgot password?
