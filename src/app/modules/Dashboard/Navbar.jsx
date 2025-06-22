@@ -98,7 +98,7 @@ export default function Navbar () {
                 <ChevronDown className='w-4 h-4' />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align='end' className='w-48 bg-white'>
+            <DropdownMenuContent align='end' className='z-200 w-48 bg-white'>
               <DropdownMenuItem>Profile</DropdownMenuItem>
               <DropdownMenuItem>Settings</DropdownMenuItem>
               <DropdownMenuItem>Help</DropdownMenuItem>
